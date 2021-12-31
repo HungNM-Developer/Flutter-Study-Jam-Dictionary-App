@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study_jam/Page/Dictionary/dictionary_page.dart';
-import 'package:flutter_study_jam/Page/User/login_page.dart';
-import 'package:flutter_study_jam/Page/User/register_page.dart';
+import 'package:flutter_study_jam/page/dictionary/dictionary_page.dart';
+import 'package:flutter_study_jam/page/user/login_page.dart';
+import 'package:flutter_study_jam/page/user/register_page.dart';
 
 class RouterName {
   static Route generateRoute(RouteSettings settings) {

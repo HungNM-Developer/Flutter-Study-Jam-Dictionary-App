@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study_jam/Config/routes/router_name.dart';
-import 'package:flutter_study_jam/Config/routes/routes.dart';
+import 'package:flutter_study_jam/config/routes/router_name.dart';
+import 'package:flutter_study_jam/config/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study_jam/Config/themes/app_colors.dart';
+import 'package:flutter_study_jam/config/themes/app_colors.dart';
 
 class AppTextStyles {
   static const h1 = TextStyle(
