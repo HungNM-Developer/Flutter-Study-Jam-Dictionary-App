@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Something Else',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'GoogleSans',
       ),
       initialRoute: Routes.loginPage,
       onGenerateRoute: RouterName.generateRoute,
