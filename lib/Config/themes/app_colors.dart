@@ -6,4 +6,6 @@ class AppColors {
   static const hintTextColor = Color(0xFF666666);
   static const searchBarColor = Color(0xFFF2F2F2);
   static const redColor = Color(0xFFDA4436);
+  static const shadowColor = Color.fromRGBO(64, 79, 104, 0.05);
+  static const borderLineColor = Color(0xFFECEDF2);
 }
