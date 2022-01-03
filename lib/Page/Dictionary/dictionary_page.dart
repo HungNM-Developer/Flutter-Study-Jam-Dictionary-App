@@ -10,8 +10,15 @@ class DictionaryPage extends StatefulWidget {
 class _DictionaryPageState extends State<DictionaryPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        // build UI
-        );
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Text('Dictionary Screen'),
+          ),
+        ),
+      ),
+    );
   }
 }

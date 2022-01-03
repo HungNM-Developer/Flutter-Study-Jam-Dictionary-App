@@ -11,7 +11,9 @@ class AuthButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Size mediaQuery = MediaQuery.of(context).size;
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, "DictionaryPage");
+      },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 21.h),
         //height: 60,
