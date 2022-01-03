@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
 
 class TextFieldInput extends StatefulWidget {
@@ -30,10 +31,11 @@ class _TextFieldInputState extends State<TextFieldInput> {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.all(mediaQuery.width * 0.02),
+          // padding: EdgeInsets.all(mediaQuery.width * 0.02),
+          //padding: EdgeInsets.symmetric(horizontal: 26.w, vertical: 23.h),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.r),
             border: Border.all(color: AppColors.borderLineColor),
             boxShadow: [
               BoxShadow(
@@ -49,10 +51,20 @@ class _TextFieldInputState extends State<TextFieldInput> {
             textInputAction: TextInputAction.done,
             decoration: InputDecoration(
               border: InputBorder.none,
+              // border: OutlineInputBorder(
+              //   borderRadius: BorderRadius.circular(8.r),
+              //   borderSide: BorderSide(color: Colors.transparent, width: 0),
+              // ),
+              // enabledBorder: OutlineInputBorder(
+              //   borderRadius: BorderRadius.circular(8.r),
+              //   borderSide: BorderSide(color: Colors.transparent, width: 0),
+              // ),
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 27.w, vertical: 26.h),
               hintText: 'Enter your email',
               hintStyle: TextStyle(
                 color: AppColors.hintTextColor,
-                fontSize: 15,
+                fontSize: 15.sp,
                 fontWeight: FontWeight.w400,
               ),
               prefixIcon: Image.asset('assets/images/user.png'),
@@ -67,17 +79,18 @@ class _TextFieldInputState extends State<TextFieldInput> {
             ),
             style: TextStyle(
               color: Colors.black,
-              fontSize: 15,
+              fontSize: 15.sp,
               fontWeight: FontWeight.w400,
             ),
           ),
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 24.h),
         Container(
-          padding: EdgeInsets.all(8.0),
+          //padding: EdgeInsets.all(8.0),
+          //padding: EdgeInsets.symmetric(horizontal: 26.w, vertical: 23.h),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.r),
             border: Border.all(color: AppColors.borderLineColor),
             boxShadow: [
               const BoxShadow(
@@ -93,10 +106,12 @@ class _TextFieldInputState extends State<TextFieldInput> {
             textInputAction: TextInputAction.done,
             decoration: InputDecoration(
               border: InputBorder.none,
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 27.w, vertical: 26.h),
               hintText: 'Enter your password',
-              hintStyle: const TextStyle(
+              hintStyle: TextStyle(
                 color: AppColors.hintTextColor,
-                fontSize: 15,
+                fontSize: 15.sp,
                 fontWeight: FontWeight.w400,
               ),
               prefixIcon: Image.asset('assets/images/lock.png'),
@@ -120,20 +135,20 @@ class _TextFieldInputState extends State<TextFieldInput> {
             ),
             style: TextStyle(
               color: Colors.black,
-              fontSize: 15,
+              fontSize: 15.sp,
               fontWeight: FontWeight.w400,
             ),
             obscureText: isPasswordVisible,
           ),
         ),
-        SizedBox(height: 15),
+        SizedBox(height: 18.h),
         Align(
           alignment: Alignment.topRight,
           child: Text(
             widget.forgotPassword,
             style: TextStyle(
               color: AppColors.hintTextColor,
-              fontSize: 15,
+              fontSize: 15.sp,
               fontWeight: FontWeight.w400,
             ),
           ),

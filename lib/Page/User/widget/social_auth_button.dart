@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
 
 class SocialAuthButton extends StatelessWidget {
@@ -13,9 +14,9 @@ class SocialAuthButton extends StatelessWidget {
         InkWell(
           onTap: () {},
           child: Container(
-            width: 55,
-            height: 55,
-            padding: EdgeInsets.all(12),
+            width: 55.sp,
+            height: 55.sp,
+            padding: EdgeInsets.all(12.r),
             decoration: BoxDecoration(
               color: AppColors.borderLineColor,
               shape: BoxShape.circle,
@@ -26,12 +27,12 @@ class SocialAuthButton extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 40),
+        SizedBox(width: 30.w),
         InkWell(
           onTap: () {},
           child: Container(
-            width: 55,
-            height: 55,
+            width: 55.sp,
+            height: 55.sp,
             //padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: AppColors.borderLineColor,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
-import 'package:flutter_study_jam/config/themes/app_text_styles.dart';
 import 'package:flutter_study_jam/page/user/widget/auth_button.dart';
 import 'package:flutter_study_jam/page/user/widget/social_auth_button.dart';
 import 'package:flutter_study_jam/page/user/widget/textfield_input.dart';
@@ -24,10 +24,11 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.only(
-              top: mediaQuery.width * 0.15,
-              bottom: mediaQuery.width * 0.12,
-            ),
+            padding: EdgeInsets.symmetric(vertical: 102.h),
+            // padding: EdgeInsets.only(
+            //   top: mediaQuery.width * 0.15,
+            //   bottom: mediaQuery.width * 0.12,
+            // ),
             child: Column(
               children: [
                 TitleHeading(
@@ -36,44 +37,50 @@ class _LoginPageState extends State<LoginPage> {
                       'Sign in with your email and password \nor continue with social media',
                 ),
                 SizedBox(
-                  height: mediaQuery.width * 0.23,
+                  height: 135.h,
+                  // height: mediaQuery.width * 0.23,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(
-                    left: mediaQuery.width * 0.05,
-                    right: mediaQuery.width * 0.05,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 27.w),
+                  // padding: EdgeInsets.only(
+                  //   left: mediaQuery.width * 0.05,
+                  //   right: mediaQuery.width * 0.05,
+                  // ),
                   child: const TextFieldInput(
                     forgotPassword: 'Forgot password',
                   ),
                 ),
                 SizedBox(
-                  height: mediaQuery.width * 0.1,
+                  // height: mediaQuery.width * 0.1,
+                  height: 36.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(
-                    left: mediaQuery.width * 0.05,
-                    right: mediaQuery.width * 0.05,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 27.w),
+                  // padding: EdgeInsets.only(
+                  //   left: mediaQuery.width * 0.05,
+                  //   right: mediaQuery.width * 0.05,
+                  // ),
                   child: const AuthButton(
                     textButton: 'Sign in',
                   ),
                 ),
                 SizedBox(
-                  height: mediaQuery.width * 0.16,
+                  // height: mediaQuery.width * 0.16,
+                  height: 87.h,
                 ),
                 const SocialAuthButton(),
                 SizedBox(
-                  height: mediaQuery.width * 0.05,
+                  // height: mediaQuery.width * 0.05,
+                  height: 17.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Don’t have an account?',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColors.hintTextColor,
-                        fontSize: 18,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -84,11 +91,11 @@ class _LoginPageState extends State<LoginPage> {
                       onTap: () {
                         Navigator.pushNamed(context, "RegisterPage");
                       },
-                      child: const Text(
+                      child: Text(
                         'Sign Up',
                         style: TextStyle(
                           color: AppColors.primaryBuleColor,
-                          fontSize: 18,
+                          fontSize: 18.sp,
                           fontWeight: FontWeight.w400,
                         ),
                       ),

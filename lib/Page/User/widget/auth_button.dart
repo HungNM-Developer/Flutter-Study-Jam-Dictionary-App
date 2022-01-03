@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
 
 class AuthButton extends StatelessWidget {
@@ -12,18 +13,19 @@ class AuthButton extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Container(
-        height: 60,
+        padding: EdgeInsets.symmetric(vertical: 21.h),
+        //height: 60,
         width: mediaQuery.width,
         decoration: BoxDecoration(
           color: AppColors.primaryBuleColor,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
         ),
         child: Center(
           child: Text(
             textButton,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 15,
+              fontSize: 15.sp,
               fontWeight: FontWeight.w400,
             ),
           ),

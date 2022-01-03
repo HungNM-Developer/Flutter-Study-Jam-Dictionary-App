@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
 import 'package:flutter_study_jam/config/themes/app_text_styles.dart';
 
@@ -14,12 +15,13 @@ class TitleHeading extends StatelessWidget {
       children: [
         Text(title, style: AppTextStyles.h1),
         Padding(
-          padding: const EdgeInsets.only(top: 20),
+          padding: EdgeInsets.symmetric(vertical: 24.h),
+          // padding: const EdgeInsets.only(top: 20),
           child: Text(
             subtitle,
             // 'Sign in with your email and password or continue with social media ',
-            style: const TextStyle(
-              fontSize: 14,
+            style: TextStyle(
+              fontSize: 14.sp,
               fontWeight: FontWeight.w400,
               color: AppColors.hintTextColor,
             ),
