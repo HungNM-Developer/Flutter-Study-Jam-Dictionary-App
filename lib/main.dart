@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_study_jam/config/routes/router_name.dart';
 import 'package:flutter_study_jam/config/routes/routes.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,15 +18,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Something Else',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'GoogleSans',
+    return ScreenUtilInit(
+      builder: () => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Something Else',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          fontFamily: 'GoogleSans',
+        ),
+        initialRoute: Routes.loginPage,
+        onGenerateRoute: RouterName.generateRoute,
       ),
-      initialRoute: Routes.loginPage,
-      onGenerateRoute: RouterName.generateRoute,
+      designSize: const Size(360, 640),
     );
   }
 }
