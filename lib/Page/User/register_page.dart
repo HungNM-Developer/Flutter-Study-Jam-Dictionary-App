@@ -22,7 +22,7 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 102.h),
+            padding: EdgeInsets.only(top: 84.h),
             // padding: EdgeInsets.only(
             //   top: mediaQuery.width * 0.15,
             //   bottom: mediaQuery.width * 0.12,
@@ -35,11 +35,11 @@ class _RegisterPageState extends State<RegisterPage> {
                       'Complete your details or continue \nwith social media',
                 ),
                 SizedBox(
-                  height: 135.h,
+                  height: 100.h,
                   // height: mediaQuery.width * 0.23,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 27.w),
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
                   // padding: EdgeInsets.only(
                   //   left: mediaQuery.width * 0.05,
                   //   right: mediaQuery.width * 0.05,
@@ -50,10 +50,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 SizedBox(
                   // height: mediaQuery.width * 0.1,
-                  height: 36.h,
+                  height: 30.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 27.w),
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
                   // padding: EdgeInsets.only(
                   //   left: mediaQuery.width * 0.05,
                   //   right: mediaQuery.width * 0.05,
@@ -63,50 +63,40 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 87.h,
+                  height: 85.h,
                   // height: mediaQuery.width * 0.16,
                 ),
                 const SocialAuthButton(),
                 SizedBox(
                   // height: mediaQuery.width * 0.05,
-                  height: 17.h,
+                  height: 24.h,
                 ),
-                Column(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'By continuning your confirm that your agree',
+                      'Had an account?',
                       style: TextStyle(
                         color: AppColors.hintTextColor,
-                        fontSize: 14.sp,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'with our',
-                          style: TextStyle(
-                            color: AppColors.hintTextColor,
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
+                    SizedBox(
+                      width: mediaQuery.width * 0.012,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, "LoginPage");
+                      },
+                      child: Text(
+                        'Sign in',
+                        style: TextStyle(
+                          color: AppColors.primaryBuleColor,
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w400,
                         ),
-                        SizedBox(
-                          width: mediaQuery.width * 0.012,
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: Text(
-                            'Term and Condition',
-                            style: TextStyle(
-                              color: AppColors.primaryBuleColor,
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ],
                 ),

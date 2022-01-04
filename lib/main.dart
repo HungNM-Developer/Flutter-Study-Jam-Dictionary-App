@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         initialRoute: Routes.loginPage,
         onGenerateRoute: RouterName.generateRoute,
       ),
-      designSize: const Size(428, 926),
+      designSize: const Size(414, 896),
     );
   }
 }

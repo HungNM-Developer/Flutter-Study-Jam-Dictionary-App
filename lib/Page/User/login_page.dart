@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 102.h),
+            padding: EdgeInsets.only(top: 84.h),
             // padding: EdgeInsets.only(
             //   top: mediaQuery.width * 0.15,
             //   bottom: mediaQuery.width * 0.12,
@@ -37,11 +37,11 @@ class _LoginPageState extends State<LoginPage> {
                       'Sign in with your email and password \nor continue with social media',
                 ),
                 SizedBox(
-                  height: 135.h,
+                  height: 100.h,
                   // height: mediaQuery.width * 0.23,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 27.w),
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
                   // padding: EdgeInsets.only(
                   //   left: mediaQuery.width * 0.05,
                   //   right: mediaQuery.width * 0.05,
@@ -52,10 +52,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(
                   // height: mediaQuery.width * 0.1,
-                  height: 36.h,
+                  height: 30.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 27.w),
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
                   // padding: EdgeInsets.only(
                   //   left: mediaQuery.width * 0.05,
                   //   right: mediaQuery.width * 0.05,
@@ -66,12 +66,12 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 SizedBox(
                   // height: mediaQuery.width * 0.16,
-                  height: 87.h,
+                  height: 85.h,
                 ),
                 const SocialAuthButton(),
                 SizedBox(
                   // height: mediaQuery.width * 0.05,
-                  height: 17.h,
+                  height: 24.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.pushNamed(context, "RegisterPage");
                       },
                       child: Text(
-                        'Sign Up',
+                        'Sign up',
                         style: TextStyle(
                           color: AppColors.primaryBuleColor,
                           fontSize: 18.sp,
