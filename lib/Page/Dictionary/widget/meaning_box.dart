@@ -6,8 +6,12 @@ class MeaningBox extends StatelessWidget {
   const MeaningBox({
     Key? key,
     required this.index,
+    required this.explanation,
+    required this.example,
   }) : super(key: key);
   final int index;
+  final String explanation;
+  final String example;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,14 +30,17 @@ class MeaningBox extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "an institution for educating children. ",
+                  explanation,
+                  //"an institution for educating children. ",
                   style: TextStyle(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w400,
+                    color: AppColors.heading1Color,
                   ),
                 ),
                 Text(
-                  "'an institution for educating children. '",
+                  example,
+                  //"'an institution for educating children. '",
                   style: TextStyle(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w400,

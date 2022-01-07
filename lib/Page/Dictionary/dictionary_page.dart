@@ -17,6 +17,7 @@ class DictionaryPage extends StatefulWidget {
 class _DictionaryPageState extends State<DictionaryPage> {
   @override
   Widget build(BuildContext context) {
+    Size mediaQuery = MediaQuery.of(context).size;
     return Scaffold(
       drawer: DrawerWidget(),
       appBar: AppBar(
@@ -26,30 +27,11 @@ class _DictionaryPageState extends State<DictionaryPage> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      // AppBar(
-      //   title: Center(
-      //     child: Text(
-      //       'Dictionary',
-      //       style: TextStyle(color: Colors.black),
-      //     ),
-      //   ),
-      //   backgroundColor: Colors.white,
-      //   elevation: 0,
-      //   leading: Builder(
-      //     builder: (context) => IconButton(
-      //       icon: Icon(
-      //         Icons.menu,
-      //         color: AppColors.primaryBuleColor,
-      //       ),
-      //       onPressed: () {
-      //         Scaffold.of(context).openDrawer();
-      //       },
-      //     ),
-      //   ),
-      // ),
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: Container(
+          height: mediaQuery.height,
+          width: mediaQuery.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -71,10 +53,26 @@ class _DictionaryPageState extends State<DictionaryPage> {
               SizedBox(
                 height: 38.h,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 34.w),
-                child: ContentSearch(),
+              Expanded(
+                child: Container(
+                  color: Colors.white,
+                  child: ListView.builder(
+                      itemCount: 2,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 34.w),
+                          child: const ContentSearch(
+                            attribute: "noun",
+                            example:
+                                "'an institution for educating children. '",
+                            explanation:
+                                "an institution for educating children. ",
+                          ),
+                        );
+                      }),
+                ),
               ),
+              //
             ],
           ),
         ),

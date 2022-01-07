@@ -17,7 +17,7 @@ class DrawerWidget extends StatelessWidget {
           Divider(
             //height: 3,
             thickness: 0.7,
-            color: Colors.black,
+            color: Colors.black12,
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 21.w, vertical: 21.h),
