@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/meaning_box.dart';
 
-class ContentSearch extends StatelessWidget {
+class ContentSearch extends StatefulWidget {
   const ContentSearch(
       {Key? key,
       required this.attribute,
@@ -11,20 +11,26 @@ class ContentSearch extends StatelessWidget {
       required this.example})
       : super(key: key);
   final String attribute, explanation, example;
+
+  @override
+  State<ContentSearch> createState() => _ContentSearchState();
+}
+
+class _ContentSearchState extends State<ContentSearch> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          attribute,
+          widget.attribute,
           style: TextStyle(
             fontSize: 18.sp,
             fontWeight: FontWeight.w400,
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 72.w, bottom: 43.h),
+          padding: EdgeInsets.only(left: 41.w, bottom: 43.h),
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 8.h),
             child: Column(
@@ -32,17 +38,20 @@ class ContentSearch extends StatelessWidget {
                 ...[1, 2].map(
                   (e) => MeaningBox(
                     index: e,
-                    example: example,
-                    explanation: explanation,
+                    example: widget.example,
+                    explanation: widget.explanation,
                   ),
                 ),
-                Container(
+                SizedBox(
                   //color: Colors.cyan,
-                  height: 50.h,
-                  child: Stack(
+                  width: MediaQuery.of(context).size.width,
+                  height: 45.h,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Align(
-                        alignment: Alignment.centerLeft,
+                      Padding(
+                        padding: EdgeInsets.only(right: 15.w),
                         child: Text(
                           'Similar',
                           style: TextStyle(
@@ -52,31 +61,28 @@ class ContentSearch extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 66.w),
-                        child: Container(
-                          width: double.infinity,
-                          height: 50.h,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              ...['Hello', 'Learning', 'Study', 'Home'].map(
-                                (e) => Chip(
-                                  side: BorderSide(
-                                    color: AppColors.searchBarColor,
-                                  ),
-                                  backgroundColor: Colors.white,
-                                  label: Text(
-                                    e,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12.sp,
-                                    ),
+                      Expanded(
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 3,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: EdgeInsets.only(right: 15.w),
+                              child: Chip(
+                                side: BorderSide(
+                                  color: AppColors.searchBarColor,
+                                ),
+                                backgroundColor: Colors.white,
+                                label: Text(
+                                  'notification',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 12.sp,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            );
+                          },
                         ),
                       ),
                     ],

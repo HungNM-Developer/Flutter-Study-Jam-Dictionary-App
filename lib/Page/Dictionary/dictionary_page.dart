@@ -19,12 +19,12 @@ class _DictionaryPageState extends State<DictionaryPage> {
   Widget build(BuildContext context) {
     Size mediaQuery = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         backgroundColor: AppColors.primaryBuleColor,
         title: Text(
           'Dictionary',
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
       backgroundColor: Colors.white,
@@ -47,8 +47,8 @@ class _DictionaryPageState extends State<DictionaryPage> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
-                child:
-                    KeywordSearch(keyWordSearch: 'Hello', phonetic: '/Heˈloʊ/'),
+                child: const KeywordSearch(
+                    keyWordSearch: 'Hello', phonetic: '/Heˈloʊ/'),
               ),
               SizedBox(
                 height: 38.h,
