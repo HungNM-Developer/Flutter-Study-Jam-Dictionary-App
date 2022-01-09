@@ -3,17 +3,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
 
 class AuthButton extends StatelessWidget {
-  const AuthButton({Key? key, required this.textButton}) : super(key: key);
-
+  const AuthButton(
+      {Key? key, required this.textButton, required this.authentication})
+      : super(key: key);
+  final Future authentication;
   final String textButton;
 
   @override
   Widget build(BuildContext context) {
     Size mediaQuery = MediaQuery.of(context).size;
     return InkWell(
-      onTap: () {
-        Navigator.pushNamed(context, "DictionaryPage");
-      },
+      onTap: () => authentication,
+
+      // Navigator.pushNamed(context, "DictionaryPage");
+
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 21.h),
         //height: 60,

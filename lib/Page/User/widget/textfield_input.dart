@@ -1,26 +1,46 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
 
 class TextFieldInput extends StatefulWidget {
-  const TextFieldInput({Key? key, required this.forgotPassword})
-      : super(key: key);
+  TextFieldInput({
+    Key? key,
+    required this.forgotPassword,
+    // required this.email,
+    // required this.password,
+    required this.emailController,
+    required this.passwordController,
+  }) : super(key: key);
 
+  // String email;
+  // String password;
   final String forgotPassword;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
 
   @override
   State<TextFieldInput> createState() => _TextFieldInputState();
 }
 
 class _TextFieldInputState extends State<TextFieldInput> {
-  final emailController = TextEditingController();
-  String password = '';
+  // form key
+  //final _formKey = GlobalKey<FormState>();
+
+  // editing controller
+  // final TextEditingController emailController = TextEditingController();
+  // final TextEditingController passwordController = TextEditingController();
+
+  // firebase
+  //final _auth = FirebaseAuth.instance;
+
+  // bool showSpinner = false;
   bool isPasswordVisible = true;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    emailController.addListener(() {
+    widget.emailController.addListener(() {
       setState(() {});
     });
   }
@@ -31,8 +51,6 @@ class _TextFieldInputState extends State<TextFieldInput> {
     return Column(
       children: [
         Container(
-          // padding: EdgeInsets.all(mediaQuery.width * 0.02),
-          //padding: EdgeInsets.symmetric(horizontal: 26.w, vertical: 23.h),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(8.r),
@@ -41,24 +59,59 @@ class _TextFieldInputState extends State<TextFieldInput> {
               BoxShadow(
                 color: AppColors.shadowColor,
                 blurRadius: 15.0,
-                offset: Offset(0, 6.0),
+                offset: const Offset(0, 6.0),
               ),
             ],
           ),
-          child: TextField(
-            controller: emailController,
+          child:
+              //   TextFormField(
+              //     autofocus: false,
+              //     controller: widget.emailController,
+              //     keyboardType: TextInputType.emailAddress,
+              //     validator: (value) {
+              //       if (value!.isEmpty) {
+              //         return ("Please Enter Your Email");
+              //       }
+              //       // reg expression for email validation
+              //       if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+              //           .hasMatch(value)) {
+              //         return ("Please Enter a valid email");
+              //       }
+              //       return null;
+              //     },
+              //     onSaved: (value) {
+              //       widget.emailController.text = value!;
+              //     },
+              //     textInputAction: TextInputAction.next,
+              //     decoration: InputDecoration(
+              //       prefixIcon: Icon(Icons.mail),
+              //       contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+              //       hintText: "Email",
+              //       border: OutlineInputBorder(
+              //         borderRadius: BorderRadius.circular(10),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              TextFormField(
+            controller: widget.emailController,
             keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.done,
+            textInputAction: TextInputAction.next,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return ("Please Enter Your Email");
+              }
+              if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                  .hasMatch(value)) {
+                return ("Please Enter a valid email");
+              }
+              return null;
+            },
+            onSaved: (value) {
+              widget.emailController.text = value!;
+            },
             decoration: InputDecoration(
               border: InputBorder.none,
-              // border: OutlineInputBorder(
-              //   borderRadius: BorderRadius.circular(8.r),
-              //   borderSide: BorderSide(color: Colors.transparent, width: 0),
-              // ),
-              // enabledBorder: OutlineInputBorder(
-              //   borderRadius: BorderRadius.circular(8.r),
-              //   borderSide: BorderSide(color: Colors.transparent, width: 0),
-              // ),
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 27.w, vertical: 26.h),
               hintText: 'Enter your email',
@@ -68,12 +121,12 @@ class _TextFieldInputState extends State<TextFieldInput> {
                 fontWeight: FontWeight.w400,
               ),
               prefixIcon: Image.asset('assets/images/user.png'),
-              suffixIcon: emailController.text.isEmpty
+              suffixIcon: widget.emailController.text.isEmpty
                   ? Container(width: 0)
                   : IconButton(
                       icon: const Icon(Icons.close),
                       onPressed: () {
-                        emailController.clear();
+                        widget.emailController.clear();
                       },
                     ),
             ),
@@ -86,8 +139,6 @@ class _TextFieldInputState extends State<TextFieldInput> {
         ),
         SizedBox(height: 24.h),
         Container(
-          //padding: EdgeInsets.all(8.0),
-          //padding: EdgeInsets.symmetric(horizontal: 26.w, vertical: 23.h),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(8.r),
@@ -100,10 +151,50 @@ class _TextFieldInputState extends State<TextFieldInput> {
               ),
             ],
           ),
-          child: TextField(
-            //controller: emailController,
+          child:
+              // TextFormField(
+              //   autofocus: false,
+              //   controller: widget.passwordController,
+              //   obscureText: true,
+              //   validator: (value) {
+              //     RegExp regex = new RegExp(r'^.{6,}$');
+              //     if (value!.isEmpty) {
+              //       return ("Password is required for login");
+              //     }
+              //     if (!regex.hasMatch(value)) {
+              //       return ("Enter Valid Password(Min. 6 Character)");
+              //     }
+              //   },
+              //   onSaved: (value) {
+              //     widget.passwordController.text = value!;
+              //   },
+              //   textInputAction: TextInputAction.done,
+              //   decoration: InputDecoration(
+              //     prefixIcon: Icon(Icons.vpn_key),
+              //     contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+              //     hintText: "Password",
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10),
+              //     ),
+              //   ),
+              // ),
+              TextFormField(
+            //autofocus: true,
+            controller: widget.passwordController,
             keyboardType: TextInputType.visiblePassword,
             textInputAction: TextInputAction.done,
+            validator: (value) {
+              RegExp regex = new RegExp(r'^.{6,}$');
+              if (value!.isEmpty) {
+                return ("Password is required for login");
+              }
+              if (!regex.hasMatch(value)) {
+                return ("Enter Valid Password(Min. 6 Character)");
+              }
+            },
+            onSaved: (value) {
+              widget.passwordController.text = value!;
+            },
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding:

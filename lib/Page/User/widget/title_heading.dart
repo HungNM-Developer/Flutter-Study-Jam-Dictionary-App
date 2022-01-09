@@ -15,7 +15,7 @@ class TitleHeading extends StatelessWidget {
       children: [
         Text(title, style: AppTextStyles.h1),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 24.h),
+          padding: EdgeInsets.only(top: 24.h),
           // padding: const EdgeInsets.only(top: 20),
           child: Text(
             subtitle,
