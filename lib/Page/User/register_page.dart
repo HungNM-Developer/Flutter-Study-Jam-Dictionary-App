@@ -7,6 +7,7 @@ import 'package:flutter_study_jam/page/user/widget/social_auth_button.dart';
 import 'package:flutter_study_jam/page/user/widget/textfield_input.dart';
 import 'package:flutter_study_jam/page/user/widget/title_heading.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import "package:flutter_study_jam/Services/firebase_auth.dart";
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -22,24 +23,19 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  // firebase
-  final _auth = FirebaseAuth.instance;
   String? errorMessage;
 
   Future<void> signUp(String email, String password) async {
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState != null && _formKey.currentState!.validate()) {
       try {
-        await _auth
-            .createUserWithEmailAndPassword(email: email, password: password)
+        await FirebaseAuthService.createUserWithEmailAndPassword(
+                email, password)
             .then(
-              (value) => {
-                Fluttertoast.showToast(msg: "Account created successfully"),
-                Navigator.pushReplacementNamed(context, "DictionaryPage"),
-              },
-            )
-            .catchError((e) {
-          Fluttertoast.showToast(msg: e!.message);
-        });
+          (value) => {
+            Fluttertoast.showToast(msg: "Account created successfully"),
+            Navigator.pushReplacementNamed(context, "DictionaryPage"),
+          },
+        );
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
           case "invalid-email":

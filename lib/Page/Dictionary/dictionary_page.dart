@@ -7,6 +7,7 @@ import 'package:flutter_study_jam/page/dictionary/widget/content_search.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/drawer_widget.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/keyword_search.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/search_input.dart';
+import "package:flutter_study_jam/Services/firebase_auth.dart";
 
 class DictionaryPage extends StatefulWidget {
   const DictionaryPage({Key? key}) : super(key: key);
@@ -16,26 +17,26 @@ class DictionaryPage extends StatefulWidget {
 }
 
 class _DictionaryPageState extends State<DictionaryPage> {
-  late User loggedinUser;
-  User? user = FirebaseAuth.instance.currentUser;
-  final _auth = FirebaseAuth.instance;
+  // User? loggedinUser;
+  // Future<User?> user = FirebaseAuthService.getCurrentUser();
 
   void initState() {
     super.initState();
-    getCurrentUser();
+    // getCurrentUser();
+    // getCurrentUser();
   }
 
   //using this function you can use the credentials of the user
-  void getCurrentUser() async {
-    try {
-      final user = await _auth.currentUser;
-      if (user != null) {
-        loggedinUser = user;
-      }
-    } catch (e) {
-      print(e);
-    }
-  }
+  // void getCurrentUser() async {
+  //   try {
+  //     final user = await FirebaseAuthService.getCurrentUser();
+  //     if (user != null) {
+  //       loggedinUser = user;
+  //     }
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 
   // void logout() {
   //   _auth.signOut();
@@ -45,7 +46,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
 
   // the logout function
   void logout() async {
-    await FirebaseAuth.instance.signOut();
+    await FirebaseAuthService.signOut();
     //Navigator.pop(context);
     Navigator.pushReplacementNamed(context, "LoginPage");
   }
@@ -58,7 +59,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
       onWillPop: () async {
         if (DateTime.now().difference(_lastExitTime) >= Duration(seconds: 2)) {
           //showing message to user
-          final snack = SnackBar(
+          const snack = SnackBar(
             content: Text("Press the back button again to exist the app"),
             duration: Duration(seconds: 2),
           );
@@ -71,16 +72,16 @@ class _DictionaryPageState extends State<DictionaryPage> {
       },
       child: Scaffold(
         drawer: DrawerWidget(
-          email: user!.email.toString(),
+          email: FirebaseAuthService.getEmail(),
           //logout:,
           //logout: logout,
         ),
         appBar: AppBar(
           backgroundColor: AppColors.primaryBuleColor,
-          title: Text(
+          title: const Text(
             //user!.email.toString(),
             'Dictionary',
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white),
           ),
         ),
         backgroundColor: Colors.white,

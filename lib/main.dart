@@ -5,9 +5,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/routes/router_name.dart';
 import 'package:flutter_study_jam/config/routes/routes.dart';
 
+// Import the generated file
+import 'firebase_options.dart';
+
 void main() async {
+  /**
+   * FlutterFire CLI automatically generates a file named firebase_options.dart
+   * which contains the FirebaseOptions class for iOS, Android and Web.
+   * See: https://firebase.flutter.dev/docs/overview
+   */
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+
+  // Initialize Firebase based on current platform
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
   SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(

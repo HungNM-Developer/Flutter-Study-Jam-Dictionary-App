@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>593031938519-hpktr076kdkah49v44onpa7270701dhv.apps.googleusercontent.com</string>
+	<string>172389996860-qk35tvn6tdlir23rh1e44ms5e2brdvj8.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.593031938519-hpktr076kdkah49v44onpa7270701dhv</string>
+	<string>com.googleusercontent.apps.172389996860-qk35tvn6tdlir23rh1e44ms5e2brdvj8</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>593031938519-ad6urgkjcsdl417mbkv1714ftkr3dh9u.apps.googleusercontent.com</string>
+	<string>172389996860-his898h5nofdac311809jqhs4lmn0vnn.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyB6uuZIAtMS2-K30ms8gtD-uv3xGcQ2Ez4</string>
+	<string>AIzaSyDZppR-kTDi81XmegT7kW_NQNSFlUTed6s</string>
 	<key>GCM_SENDER_ID</key>
-	<string>593031938519</string>
+	<string>172389996860</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.flutterStudyJam</string>
+	<string>com.example.flutterstudyjam</string>
 	<key>PROJECT_ID</key>
-	<string>flutter-study-jam-35335</string>
+	<string>simple-dictionary-app-flutter</string>
 	<key>STORAGE_BUCKET</key>
-	<string>flutter-study-jam-35335.appspot.com</string>
+	<string>simple-dictionary-app-flutter.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:593031938519:ios:28ef79b135d7f72c388b92</string>
+	<string>1:172389996860:ios:5019e97fe47af399c3a639</string>
 </dict>
 </plist>

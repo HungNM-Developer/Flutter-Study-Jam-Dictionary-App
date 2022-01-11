@@ -8,6 +8,7 @@ import 'package:flutter_study_jam/page/user/widget/social_auth_button.dart';
 import 'package:flutter_study_jam/page/user/widget/textfield_input.dart';
 import 'package:flutter_study_jam/page/user/widget/title_heading.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import "package:flutter_study_jam/Services/firebase_auth.dart";
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -15,8 +16,6 @@ class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
-
-//final _auth = FirebaseAuth.instance;
 
 class _LoginPageState extends State<LoginPage> {
   //String? email, password;
@@ -27,28 +26,25 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  // firebase
-  final _auth = FirebaseAuth.instance;
   String? errorMessage;
 
   // login function
   Future<void> signIn(String email, String password) async {
     //Navigator.pushNamed(context, 'DictionaryPage');
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState != null && _formKey.currentState!.validate()) {
       try {
-        await _auth
-            .signInWithEmailAndPassword(email: email, password: password)
+        await FirebaseAuthService.signInWithEmailAndPassword(email, password)
             .then(
-              (uid) => {
-                Fluttertoast.showToast(msg: "Login Successful"),
-                // Navigator.of(context).pushReplacement(
-                //   MaterialPageRoute(
-                //     builder: (context) => DictionaryPage(),
-                //   ),
-                // ),
-                Navigator.pushReplacementNamed(context, 'DictionaryPage'),
-              },
-            );
+          (value) => {
+            Fluttertoast.showToast(msg: "Login Successful"),
+            // Navigator.of(context).pushReplacement(
+            //   MaterialPageRoute(
+            //     builder: (context) => DictionaryPage(),
+            //   ),
+            // ),
+            Navigator.pushReplacementNamed(context, 'DictionaryPage'),
+          },
+        );
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
           case "invalid-email":
@@ -94,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
               key: _formKey,
               child: Column(
                 children: [
-                  TitleHeading(
+                  const TitleHeading(
                     title: 'Welcome back',
                     subtitle:
                         'Sign in with your email and password \nor continue with social media',
