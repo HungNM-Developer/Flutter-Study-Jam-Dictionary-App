@@ -36,13 +36,14 @@ class _LoginPageState extends State<LoginPage> {
         await FirebaseAuthService.signInWithEmailAndPassword(email, password)
             .then(
           (value) => {
-            Fluttertoast.showToast(msg: "Login Successful"),
+            Fluttertoast.showToast(msg: "Login Successful").then((value) => {
+              Navigator.pushReplacementNamed(context, 'DictionaryPage')
+            }),
             // Navigator.of(context).pushReplacement(
             //   MaterialPageRoute(
             //     builder: (context) => DictionaryPage(),
             //   ),
             // ),
-            Navigator.pushReplacementNamed(context, 'DictionaryPage'),
           },
         );
       } on FirebaseAuthException catch (error) {

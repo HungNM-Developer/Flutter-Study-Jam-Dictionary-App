@@ -72,7 +72,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
       },
       child: Scaffold(
         drawer: DrawerWidget(
-          email: FirebaseAuthService.getEmail(),
+          email: FirebaseAuthService.getCurrentUser().email!,
           //logout:,
           //logout: logout,
         ),

@@ -57,8 +57,8 @@ class FirebaseAuthService {
   }
 
   // current user
-  static Future<User?> getCurrentUser() async {
-    User? user = _firebaseAuth.currentUser!;
+  static User getCurrentUser() {
+    User user = _firebaseAuth.currentUser!;
     return user;
   }
 
