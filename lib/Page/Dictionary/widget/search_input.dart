@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_study_jam/Page/Dictionary/services/api_service.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
 
 class SearchInput extends StatefulWidget {
@@ -40,6 +41,9 @@ class _SearchInputState extends State<SearchInput> {
         controller: searchController,
         keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.send,
+        onEditingComplete: () {
+          ApiService.getword(searchController.text);
+        },
         decoration: InputDecoration(
           border: InputBorder.none,
           contentPadding:
