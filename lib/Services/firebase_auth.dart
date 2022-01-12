@@ -53,7 +53,7 @@ class FirebaseAuthService {
     );
 
     // Once signed in, return the UserCredential
-    return _firebaseAuth.signInWithCredential(credential);
+    return await _firebaseAuth.signInWithCredential(credential);
   }
 
   // current user

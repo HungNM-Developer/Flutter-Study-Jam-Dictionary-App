@@ -16,7 +16,7 @@ void main() async {
    */
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase based on current platform
+  // // Initialize Firebase based on current platform
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
