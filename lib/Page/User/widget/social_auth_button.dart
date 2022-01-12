@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
+import "package:flutter_study_jam/Services/firebase_auth.dart";
 
 class SocialAuthButton extends StatelessWidget {
   const SocialAuthButton({Key? key}) : super(key: key);
+
+  void loginWithGoogle(BuildContext context) {
+    FirebaseAuthService.signInWithGoogle().then((value) {
+      print(value);
+      Navigator.pushNamed(context, 'DictionaryPage');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +20,9 @@ class SocialAuthButton extends StatelessWidget {
       //crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () {
+            loginWithGoogle(context);
+          },
           child: Container(
             width: 55.sp,
             height: 55.sp,
