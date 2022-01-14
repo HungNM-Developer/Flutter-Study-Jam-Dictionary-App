@@ -1,13 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/content_search.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/drawer_widget.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/keyword_search.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/search_input.dart';
-import "package:flutter_study_jam/Services/firebase_auth.dart";
+import 'package:flutter_study_jam/services/firebase_auth.dart';
 
 class DictionaryPage extends StatefulWidget {
   const DictionaryPage({Key? key}) : super(key: key);

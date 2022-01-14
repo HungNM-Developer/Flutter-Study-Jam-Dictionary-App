@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
-import 'package:flutter_study_jam/page/dictionary/dictionary_page.dart';
 import 'package:flutter_study_jam/page/user/widget/auth_button.dart';
 import 'package:flutter_study_jam/page/user/widget/social_auth_button.dart';
 import 'package:flutter_study_jam/page/user/widget/textfield_input.dart';
@@ -36,9 +35,8 @@ class _LoginPageState extends State<LoginPage> {
         await FirebaseAuthService.signInWithEmailAndPassword(email, password)
             .then(
           (value) => {
-            Fluttertoast.showToast(msg: "Login Successful").then((value) => {
-              Navigator.pushReplacementNamed(context, 'DictionaryPage')
-            }),
+            Fluttertoast.showToast(msg: "Login Successful").then((value) =>
+                {Navigator.pushReplacementNamed(context, 'DictionaryPage')}),
             // Navigator.of(context).pushReplacement(
             //   MaterialPageRoute(
             //     builder: (context) => DictionaryPage(),
