@@ -6,8 +6,8 @@ import 'package:flutter_study_jam/page/user/widget/auth_button.dart';
 import 'package:flutter_study_jam/page/user/widget/social_auth_button.dart';
 import 'package:flutter_study_jam/page/user/widget/textfield_input.dart';
 import 'package:flutter_study_jam/page/user/widget/title_heading.dart';
+import 'package:flutter_study_jam/services/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import "package:flutter_study_jam/Services/firebase_auth.dart";
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);

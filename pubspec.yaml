@@ -41,6 +41,7 @@ dependencies:
   fluttertoast: ^8.0.8
   google_sign_in: ^5.2.2
   http: ^0.13.4
+  audioplayers: ^0.20.1
 
 dev_dependencies:
   flutter_test:

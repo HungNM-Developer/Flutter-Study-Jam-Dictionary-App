@@ -1,4 +1,4 @@
-import 'package:flutter_study_jam/Page/Dictionary/model.dart';
+import 'package:flutter_study_jam/page/dictionary/model.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {

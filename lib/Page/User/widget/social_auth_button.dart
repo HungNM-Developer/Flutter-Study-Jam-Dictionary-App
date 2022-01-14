@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
-import "package:flutter_study_jam/Services/firebase_auth.dart";
+import 'package:flutter_study_jam/services/firebase_auth.dart';
 
 class SocialAuthButton extends StatelessWidget {
   const SocialAuthButton({Key? key}) : super(key: key);
