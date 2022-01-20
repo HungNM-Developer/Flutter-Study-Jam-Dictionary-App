@@ -60,8 +60,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '172389996860',
     projectId: 'simple-dictionary-app-flutter',
     storageBucket: 'simple-dictionary-app-flutter.appspot.com',
-    androidClientId: '172389996860-his898h5nofdac311809jqhs4lmn0vnn.apps.googleusercontent.com',
-    iosClientId: '172389996860-qk35tvn6tdlir23rh1e44ms5e2brdvj8.apps.googleusercontent.com',
+    androidClientId:
+        '172389996860-his898h5nofdac311809jqhs4lmn0vnn.apps.googleusercontent.com',
+    iosClientId:
+        '172389996860-qk35tvn6tdlir23rh1e44ms5e2brdvj8.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterstudyjam',
   );
 }

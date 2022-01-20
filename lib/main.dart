@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           fontFamily: 'GoogleSans',
         ),
-        initialRoute: Routes.loginPage,
+        initialRoute: Routes.dictionaryPage,
         onGenerateRoute: RouterName.generateRoute,
       ),
       designSize: const Size(414, 896),

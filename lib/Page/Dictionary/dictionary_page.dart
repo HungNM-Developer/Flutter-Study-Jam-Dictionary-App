@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
+import 'package:flutter_study_jam/page/dictionary/model.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/content_search.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/drawer_widget.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/keyword_search.dart';
 import 'package:flutter_study_jam/page/dictionary/widget/search_input.dart';
 import 'package:flutter_study_jam/services/firebase_auth.dart';
+import 'package:flutter_study_jam/page/dictionary/services/api_service.dart';
 
 class DictionaryPage extends StatefulWidget {
   const DictionaryPage({Key? key}) : super(key: key);
@@ -49,6 +51,8 @@ class _DictionaryPageState extends State<DictionaryPage> {
     Navigator.pushReplacementNamed(context, "LoginPage");
   }
 
+  var sreachedText = "community";
+
   @override
   Widget build(BuildContext context) {
     Size mediaQuery = MediaQuery.of(context).size;
@@ -70,7 +74,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
       },
       child: Scaffold(
         drawer: DrawerWidget(
-          email: FirebaseAuthService.getCurrentUser().email!,
+          email: "GDSC",
           //logout:,
           //logout: logout,
         ),
@@ -95,39 +99,64 @@ class _DictionaryPageState extends State<DictionaryPage> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 27.w),
-                  child: SearchInput(),
+                  child: SearchInput(
+                    onSubmit: (text) {
+                      setState(() {
+                        sreachedText = text;
+                      });
+                    },
+                  ),
                 ),
                 SizedBox(
                   height: 28.h,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: const KeywordSearch(
-                      keyWordSearch: 'Hello', phonetic: '/Heˈloʊ/'),
-                ),
-                SizedBox(
-                  height: 38.h,
-                ),
-                Expanded(
-                  child: Container(
-                    color: Colors.white,
-                    child: ListView.builder(
-                        itemCount: 2,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 34.w),
-                            child: const ContentSearch(
-                              attribute: "noun",
-                              example:
-                                  "'an institution for educating children. '",
-                              explanation:
-                                  "an institution for educating children. ",
+                FutureBuilder<DictModel>(
+                    future: ApiService.getWord(sreachedText),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+                      if (!snapshot.hasData || snapshot.hasError) {
+                        return const Center(child: Text("Sorry no word"));
+                      }
+                      var model = snapshot.data!;
+                      return Expanded(
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 30.w),
+                              child: KeywordSearch(
+                                  soundURL: model.phonetics![0].audio!,
+                                  keyWordSearch: model.word!,
+                                  phonetic: model.phonetic!),
                             ),
-                          );
-                        }),
-                  ),
-                ),
-                //
+                            SizedBox(
+                              height: 38.h,
+                            ),
+                            Expanded(
+                              child: Container(
+                                color: Colors.white,
+                                child: ListView.builder(
+                                    itemCount: model.meanings!.length,
+                                    itemBuilder: (context, index) {
+                                      return Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 34.w),
+                                        child: ContentSearch(
+                                          attribute: model
+                                              .meanings![index].partOfSpeech!,
+                                          wordDefinitions: model
+                                              .meanings![index].definitions!,
+                                        ),
+                                      );
+                                    }),
+                              ),
+                            ),
+                            //
+                          ],
+                        ),
+                      );
+                    }),
               ],
             ),
           ),

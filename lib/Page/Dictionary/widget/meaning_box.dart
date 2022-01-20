@@ -28,6 +28,7 @@ class MeaningBox extends StatelessWidget {
           ),
           Flexible(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   explanation,
