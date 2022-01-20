@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_study_jam/config/themes/app_colors.dart';
 
 class SearchInput extends StatefulWidget {
-  SearchInput({Key? key}) : super(key: key);
+  Function(String) onSubmit;
+  SearchInput({Key? key, required this.onSubmit}) : super(key: key);
 
   @override
   _SearchInputState createState() => _SearchInputState();
@@ -40,6 +41,9 @@ class _SearchInputState extends State<SearchInput> {
         controller: searchController,
         keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.send,
+        onEditingComplete: () {
+          widget.onSubmit(searchController.text);
+        },
         decoration: InputDecoration(
           border: InputBorder.none,
           contentPadding:
